@@ -48,11 +48,9 @@
 <div class="card mt-3" *ngIf="compiledVideo.video_url">
   <div class="card-header">Combined Video</div>
   <div class="card-body">
-    <div class="row" *ngIf="compiledVideo.video_url">
-      <video class="combined-video" controls>
-        <source class="combined-video-source" src="{{compiledVideo.video_url}}" type="video/mp4">
-          Your browser does not support HTML video.
-      </video>
-    </div>
+    <video class="combined-video" controls>
+      <source class="combined-video-source" src="{{compiledVideo.video_url}}" type="video/mp4">
+        Your browser does not support HTML video.
+    </video>
   </div>
 </div>

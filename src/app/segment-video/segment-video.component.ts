@@ -31,11 +31,12 @@ export class SegmentVideoComponent implements OnInit {
 
   segmentVideo() {
     this.submitted = true;
-    this.loading = true;
 
     if(this.segmentVideoForm.invalid) {
       return;
     }
+
+    this.loading = true;
 
     const formCopy = Object.assign({}, this.segmentVideoForm.getRawValue()); // deep copy to manipulate data before sending to server
 

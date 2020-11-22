@@ -48,16 +48,33 @@ export class VideoCompilationComponent implements OnInit {
     this.segments.removeAt(index);
   }
 
+  isRangeValid(segments) {
+    // api returns error only when start > end
+    // start == end api doesn't respond with error but that 1 sec does not reflect in output video
+    // so keeping validation for equalto
+    for(let i = 0, l = segments.length; i < l; i ++) {
+      if(segments[i].start >= segments[i].end) {
+        return {status: false, index: i};
+      }
+    }
+    return {status: true, index: null};
+  }
+
   videoCompilation() {
     this.compiledVideo = {};
     this.submitted = true;
-    this.loading = true;
-
-    console.log(this.videoCompilationForm.invalid, this.videoCompilationForm.getRawValue());
 
     if(this.videoCompilationForm.invalid) {
       return;
     }
+
+    let isRangeValidResponse = this.isRangeValid(this.videoCompilationForm.getRawValue().segments);
+    if(!isRangeValidResponse.status) {
+      alert(`Please correct range for ${isRangeValidResponse.index + 1} record`);
+      return;
+    }
+
+    this.loading = true;
 
     const formCopy = Object.assign({}, this.videoCompilationForm.getRawValue()); // deep copy to manipulate data before sending to server
 
