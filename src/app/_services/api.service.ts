@@ -11,4 +11,8 @@ export class ApiService {
     return this.http.post(`${environment.apiUrl}/api/process-interval`, params);
   }
 
+  videoCompilationRequest(params) {
+    return this.http.post(`${environment.apiUrl}/api/combine-video`, params);
+  }
+
 }

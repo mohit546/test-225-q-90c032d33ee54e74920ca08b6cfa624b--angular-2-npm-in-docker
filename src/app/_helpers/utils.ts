@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormControl, ValidatorFn } from '@angular/forms';
+import { FormControl, ValidatorFn, AbstractControl } from '@angular/forms';
 
 @Injectable()
 export class Utils {
@@ -15,6 +15,15 @@ export class Utils {
         return null;
       }
       return { 'min': true };
+    }
+  }
+
+  minLengthArray = (min: number) => {
+    return (c: AbstractControl): {[key: string]: any} => {
+      if (c.value.length >= min)
+        return null;
+
+      return { MinLengthArray: true};
     }
   }
 }
