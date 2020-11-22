@@ -7,8 +7,6 @@ import { environment } from 'environments/environment';
 })
 export class AppComponent {
 
-  title = 'app works!';
-
   constructor() {
     console.log(environment.apiUrl);
   }
