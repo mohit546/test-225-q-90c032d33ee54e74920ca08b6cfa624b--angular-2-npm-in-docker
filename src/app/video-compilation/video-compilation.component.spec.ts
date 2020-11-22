@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { CombineVideoComponent } from './combine-video.component';
+import { VideoCompilationComponent } from './video-compilation.component';
 
-describe('CombineVideoComponent', () => {
-  let component: CombineVideoComponent;
-  let fixture: ComponentFixture<CombineVideoComponent>;
+describe('VideoCompilationComponent', () => {
+  let component: VideoCompilationComponent;
+  let fixture: ComponentFixture<VideoCompilationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CombineVideoComponent ]
+      declarations: [ VideoCompilationComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CombineVideoComponent);
+    fixture = TestBed.createComponent(VideoCompilationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

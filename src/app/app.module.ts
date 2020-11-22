@@ -6,16 +6,16 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SegmentVideoComponent } from './segment-video/segment-video.component';
-import { CombineVideoComponent } from './combine-video/combine-video.component';
 
 import { ApiService } from "./_services/api.service";
 import { Utils } from "./_helpers/utils";
+import { VideoCompilationComponent } from './video-compilation/video-compilation.component';
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     SegmentVideoComponent,
-    CombineVideoComponent
+    VideoCompilationComponent
   ],
   imports: [
     BrowserModule,
