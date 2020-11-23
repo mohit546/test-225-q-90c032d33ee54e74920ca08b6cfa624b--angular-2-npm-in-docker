@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from "../_services/api.service";
-import { FormBuilder, FormGroup, FormArray, Validators, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { Utils } from "../_helpers/utils";
 @Component({
   selector: 'app-video-compilation',
@@ -11,7 +11,9 @@ export class VideoCompilationComponent implements OnInit {
   videoCompilationForm: FormGroup;
   submitted = false; // flag to show errors after pristine
   loading = false; // flag for api delay
-  compiledVideo = {};
+  compiledVideo = {
+    video_url: ''
+  };
 
   constructor(private formBuilder: FormBuilder, private api: ApiService, private utils: Utils) {
     this.videoCompilationForm = this.formBuilder.group({
@@ -61,7 +63,9 @@ export class VideoCompilationComponent implements OnInit {
   }
 
   videoCompilation() {
-    this.compiledVideo = {};
+    this.compiledVideo = {
+      video_url: ''
+    };
     this.submitted = true;
 
     if(this.videoCompilationForm.invalid) {
@@ -86,7 +90,9 @@ export class VideoCompilationComponent implements OnInit {
           console.log(this.compiledVideo);
         } catch (error) {
           console.log('error occured during response parsing !!!');
-          this.compiledVideo = {};
+          this.compiledVideo = {
+            video_url: ''
+          };
         }
       }
       this.loading = false;

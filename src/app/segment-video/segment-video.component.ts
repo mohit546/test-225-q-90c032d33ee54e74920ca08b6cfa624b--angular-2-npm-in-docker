@@ -10,7 +10,9 @@ import { Utils } from "../_helpers/utils";
 })
 export class SegmentVideoComponent implements OnInit {
   segmentVideoForm: FormGroup;
-  segmentedVideos = [];
+  segmentedVideos = {
+    interval_videos: []
+  };
   submitted = false; // flag to show errors after pristine
   loading = false; // flag for api delay
 
@@ -48,7 +50,9 @@ export class SegmentVideoComponent implements OnInit {
           console.log(this.segmentedVideos);
         } catch (error) {
           console.log('error occured during response parsing !!!');
-          this.segmentedVideos = [];
+          this.segmentedVideos = {
+            interval_videos: []
+          };
         }
       }
       this.loading = false;
