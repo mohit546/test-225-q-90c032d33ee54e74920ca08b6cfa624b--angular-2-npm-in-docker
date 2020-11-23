@@ -38,11 +38,11 @@
   </form>
 </div>
 
-<div class="card mt-3" *ngIf="segmentedVideos.interval_videos">
-  <div class="card-header">Segmented Videos ({{segmentedVideos.interval_videos.length}})</div>
+<div class="card mt-3" *ngIf="segmentedVideos?.interval_videos">
+  <div class="card-header">Segmented Videos ({{segmentedVideos?.interval_videos.length}})</div>
   <div class="card-body">
-    <div class="row" *ngIf="segmentedVideos.interval_videos.length">
-      <div class="col mb-3" *ngFor="let video of segmentedVideos.interval_videos; let i = index;">
+    <div class="row" *ngIf="segmentedVideos?.interval_videos.length">
+      <div class="col mb-3" *ngFor="let video of segmentedVideos?.interval_videos; let i = index;">
         <h3>Segmented Video {{i+1}}</h3>
         <video class="segmented-video-{{i+1}}" width="400" controls>
           <source class="segmented-video-source-{{i+1}}" src="{{video.video_url}}" type="video/mp4">

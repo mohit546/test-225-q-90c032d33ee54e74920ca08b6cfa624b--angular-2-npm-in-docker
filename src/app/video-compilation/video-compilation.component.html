@@ -7,7 +7,7 @@
     <div class="card-body">
 
       <div formArrayName="segments">
-        <div class="form-group" *ngFor="let video of f.segments.controls; let i = index" [formGroupName]="i">
+        <div class="form-group" *ngFor="let video of f?.segments.controls; let i = index" [formGroupName]="i">
           <label for="combine-video-{{i+1}}">Video Link</label>
           <div class="input-group">
             <input type="text" id="combine-video-{{i+1}}" class="form-control combine-video-{{i+1}}"
@@ -45,11 +45,11 @@
   </form>
 </div>
 
-<div class="card mt-3" *ngIf="compiledVideo.video_url">
+<div class="card mt-3" *ngIf="compiledVideo?.video_url">
   <div class="card-header">Combined Video</div>
   <div class="card-body">
     <video class="combined-video" controls>
-      <source class="combined-video-source" src="{{compiledVideo.video_url}}" type="video/mp4">
+      <source class="combined-video-source" src="{{compiledVideo?.video_url}}" type="video/mp4">
         Your browser does not support HTML video.
     </video>
   </div>
